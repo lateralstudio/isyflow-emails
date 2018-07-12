@@ -2,6 +2,8 @@ import { Email, EmailPart, EmailPartContent } from "./Email.js";
 import { Card, CardBody, CardHeader } from "./Card.js";
 import EmailPartFooter from "./EmailPartFooter.js";
 import EmailPartHeader from "./EmailPartHeader.js";
+import ManageNotifications from "./ManageNotifications.js";
+
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -18,6 +20,15 @@ const NotificationEmail = props => {
                             emailStyle={props.emailStyle}
                         />
                     </Card>
+                </EmailPartContent>
+            </EmailPart>
+            <EmailPart>
+                <EmailPartContent>
+                    <ManageNotifications
+                        {...props.notifications}
+                        color={props.emailStyle.primaryTextColor}
+                        itemStyle={{ padding: "20px 0", textAlign: "center" }}
+                    />
                 </EmailPartContent>
             </EmailPart>
             <EmailPartFooter {...props.footer} />
@@ -46,7 +57,12 @@ NotificationEmail.propTypes = {
             url: PropTypes.string.isRequired
         }).isRequired,
         subtitle: PropTypes.node
-    }).isRequired
+    }).isRequired,
+    notifications: PropTypes.shape({
+        manageLabel: PropTypes.string,
+        manageLinkLabel: PropTypes.string,
+        manageUrl: PropTypes.string
+    })
 };
 
 export default NotificationEmail;

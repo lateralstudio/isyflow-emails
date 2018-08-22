@@ -10,7 +10,10 @@ import React from "react";
 const NotificationEmail = props => {
     return (
         <Email emailStyle={props.emailStyle}>
-            <EmailPartHeader {...props.header} />
+            <EmailPartHeader
+                {...props.header}
+                color={props.emailStyle.primaryTextColor}
+            />
             <EmailPart>
                 <EmailPartContent>
                     <Card>

@@ -8,7 +8,10 @@ import React from "react";
 const InvitationEmail = props => {
     return (
         <Email emailStyle={props.emailStyle}>
-            <EmailPartHeader {...props.header} />
+            <EmailPartHeader
+                {...props.header}
+                color={props.emailStyle.primaryTextColor}
+            />
             <EmailPart>
                 <EmailPartContent>
                     <Card>

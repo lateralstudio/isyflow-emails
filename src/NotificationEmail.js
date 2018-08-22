@@ -27,7 +27,7 @@ const NotificationEmail = props => {
                     <ManageNotifications
                         {...props.notifications}
                         color={props.emailStyle.primaryTextColor}
-                        itemStyle={{ padding: "20px 0", textAlign: "center" }}
+                        itemStyle={{ padding: "20px 0", textAlign: "left" }}
                     />
                 </EmailPartContent>
             </EmailPart>

@@ -103,7 +103,7 @@ const CardBody = ({
                     label={actionLabel}
                     url={actionUrl}
                     bgColor={emailStyle.primaryColor}
-                    color={emailStyle.primaryTextColor}
+                    color={emailStyle.alternateTextColor}
                 />
             </Span>
         </Item>

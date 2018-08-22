@@ -17,7 +17,7 @@ const Footer = ({ textColor, ...props }) => {
             <Box {...defaultBoxProps}>
                 <Item
                     style={{
-                        textAlign: "center",
+                        textAlign: "left",
                         padding: "10px 0px",
                         color
                     }}
@@ -52,7 +52,6 @@ const Footer = ({ textColor, ...props }) => {
 
 const EmailPartFooter = ({ bgColor, ...props }) => {
     return [
-        <Whitespace key="footerWhitespace" padding={10} />,
         <EmailPart key="footer" bgColor={bgColor || "#3596f4"} noPadding={true}>
             <Whitespace padding={5} />
             <EmailPartContent cellPadding={0}>

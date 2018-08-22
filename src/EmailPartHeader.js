@@ -7,7 +7,7 @@ const EmailPartHeader = ({ logo, subtitle }) => (
     <EmailPart>
         <EmailPartContent>
             <Whitespace padding="0px" />
-            <Item style={{ textAlign: "center", padding: "10px 0" }}>
+            <Item style={{ textAlign: "left", padding: "10px 0 0 0" }}>
                 <Image
                     src={logo.url}
                     height={logo.height || (logo.width ? undefined : 40)}
@@ -15,16 +15,16 @@ const EmailPartHeader = ({ logo, subtitle }) => (
                     style={{ display: "inline-block" }}
                 />
             </Item>
-            {subtitle && (
-                <Item style={{ textAlign: "center" }}>
+            {subtitle && [
+                <Item key="subtitle" style={{ textAlign: "center" }}>
                     <Box>
                         <Span style={{ fontSize: "large", color: "#fff" }}>
                             {subtitle}
                         </Span>
                     </Box>
-                </Item>
-            )}
-            <Whitespace padding="0px" />
+                </Item>,
+                <Whitespace key="subtitle_space" padding="0px" />
+            ]}
         </EmailPartContent>
     </EmailPart>
 );

@@ -23,26 +23,33 @@ const Footer = ({ textColor, ...props }) => {
                     }}
                 >
                     <Span style={{ color }}>
-                        <p>Copyright &copy; 2018 Lateral Studio Sàrl</p>
-                        <p>1010 Lausanne, Switzerland</p>
+                        <p>
+                            Copyright &copy; 2018{" "}
+                            {props.copyright || "Lateral Studio Sàrl"}
+                        </p>
+                        <p>{props.address || "1010 Lausanne, Switzerland"}</p>
                     </Span>
                     <Span>
                         <p>
                             <A
-                                href="https://www.isyflow.ch"
+                                href={props.url || "https://www.isyflow.ch"}
                                 {...getLinkProps({ style: { color } })}
                             >
-                                www.isyflow.ch
+                                {props.urlLabel || "www.isyflow.ch"}
                             </A>
                         </p>
-                        <p>
-                            <A
-                                href="mailto:isy@isyflow.ch"
-                                {...getLinkProps({ style: { color } })}
-                            >
-                                isy@isyflow.ch
-                            </A>
-                        </p>
+                        {!props.noMail && (
+                            <p>
+                                <A
+                                    href={
+                                        props.mailto || "mailto:isy@isyflow.ch"
+                                    }
+                                    {...getLinkProps({ style: { color } })}
+                                >
+                                    {props.mailtoLabel || "isy@isyflow.ch"}
+                                </A>
+                            </p>
+                        )}
                     </Span>
                 </Item>
             </Box>

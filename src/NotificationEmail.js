@@ -6,6 +6,7 @@ import ManageNotifications from "./ManageNotifications.js";
 
 import PropTypes from "prop-types";
 import React from "react";
+import SpaceBeforeFooter from "./SpaceBeforeFooter.js";
 
 const NotificationEmail = props => {
     return (
@@ -25,12 +26,13 @@ const NotificationEmail = props => {
                     </Card>
                 </EmailPartContent>
             </EmailPart>
+            <SpaceBeforeFooter />
             <EmailPart>
                 <EmailPartContent>
                     <ManageNotifications
                         {...props.notifications}
                         color={props.emailStyle.primaryTextColor}
-                        itemStyle={{ padding: "20px 0", textAlign: "left" }}
+                        itemStyle={{ padding: "0", textAlign: "left" }}
                     />
                 </EmailPartContent>
             </EmailPart>

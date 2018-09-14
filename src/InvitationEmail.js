@@ -4,6 +4,7 @@ import EmailPartFooter from "./EmailPartFooter.js";
 import EmailPartHeader from "./EmailPartHeader.js";
 import PropTypes from "prop-types";
 import React from "react";
+import SpaceBeforeFooter from "./SpaceBeforeFooter.js";
 
 const InvitationEmail = props => {
     return (
@@ -23,6 +24,7 @@ const InvitationEmail = props => {
                     </Card>
                 </EmailPartContent>
             </EmailPart>
+            <SpaceBeforeFooter />
             <EmailPartFooter {...props.footer} />
         </Email>
     );

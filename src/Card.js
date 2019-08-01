@@ -1,6 +1,7 @@
 import Avatar from "./Avatar.js";
 import { Box, Item, Span } from "react-html-email";
 import { Button, defaultBoxProps } from "./Email.js";
+import Markdown from "./Markdown.js";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -20,14 +21,14 @@ const Card = props => {
     );
 };
 
-const CardHeader = ({ avatar, main, secondary, subtitle }) => {
+const CardHeader = ({ avatar, title, subtitle }) => {
     const height = 48;
-    const AvatarComp = <Avatar {...avatar} size={height} />;
+    const AvatarComp = avatar && <Avatar {...avatar} size={height} />;
     const avatarStyle = {
         display: "inline-block"
     };
     return (
-        <Item style={{ padding: "0 0 10px 0" }}>
+        <Item>
             {AvatarComp && (
                 <Span
                     {...avatarStyle}
@@ -40,12 +41,12 @@ const CardHeader = ({ avatar, main, secondary, subtitle }) => {
                 style={{
                     display: "inline-block",
                     verticalAlign: "top",
-                    lineHeight: "20px"
+                    fontSize: "18px",
+                    lineHeight: "42px"
                 }}
             >
-                <Span fontWeight="bold">{main}</Span> {secondary}
-                <br />
-                {subtitle}
+                <Markdown text={title} />
+                {subtitle && <Markdown text={subtitle} />}
             </Span>
         </Item>
     );
@@ -57,8 +58,7 @@ CardHeader.propTypes = {
         size: PropTypes.number,
         url: PropTypes.string
     }),
-    main: PropTypes.node.isRequired,
-    secondary: PropTypes.node.isRequired,
+    title: PropTypes.node.isRequired,
     subtitle: PropTypes.node
 };
 
@@ -71,9 +71,6 @@ const CardBody = ({
 }) => {
     const itemStyle = {
         padding: "0 0 5px 0"
-    };
-    const itemSpanStyle = {
-        whiteSpace: "pre-wrap"
     };
     const buttonItemStyle = {
         padding: "15px 0 10px 0"
@@ -91,23 +88,31 @@ const CardBody = ({
         contentLines.forEach((line, index) => {
             items.push(
                 <Item key={index}>
-                    {line ? <Span>{line}</Span> : <Span>&nbsp;</Span>}
+                    {line ? (
+                        <Span>
+                            <Markdown text={line} />
+                        </Span>
+                    ) : (
+                        <Span>&nbsp;</Span>
+                    )}
                 </Item>
             );
         });
     }
-    items.push(
-        <Item style={buttonItemStyle}>
-            <Span>
-                <Button
-                    label={actionLabel}
-                    url={actionUrl}
-                    bgColor={emailStyle.primaryColor}
-                    color={emailStyle.alternateTextColor}
-                />
-            </Span>
-        </Item>
-    );
+    if (actionLabel) {
+        items.push(
+            <Item style={buttonItemStyle}>
+                <Span>
+                    <Button
+                        label={actionLabel}
+                        url={actionUrl}
+                        bgColor={emailStyle.primaryColor}
+                        color={emailStyle.alternateTextColor}
+                    />
+                </Span>
+            </Item>
+        );
+    }
     return items;
 };
 

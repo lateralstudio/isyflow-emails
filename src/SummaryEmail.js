@@ -1,55 +1,56 @@
 import { Email, EmailPart, EmailPartContent } from "./Email.js";
-import { Card, CardBody, CardHeader } from "./Card.js";
 import EmailPartFooter from "./EmailPartFooter.js";
 import EmailPartHeader from "./EmailPartHeader.js";
 import ManageNotifications from "./ManageNotifications.js";
-
 import PropTypes from "prop-types";
 import React from "react";
 import SpaceBeforeFooter from "./SpaceBeforeFooter.js";
+import SummaryItem from "./SummaryItem.js";
+import SummaryTitle from "./SummaryTitle.js";
 
-const NotificationEmail = props => {
+const SummaryEmail = props => {
     return (
         <Email emailStyle={props.emailStyle}>
             <EmailPartHeader
                 {...props.header}
                 color={props.emailStyle.primaryTextColor}
             />
-            <EmailPart>
-                <EmailPartContent>
-                    <Card>
-                        {props.card.header && (
-                            <CardHeader {...props.card.header} />
-                        )}
-                        <CardBody
-                            {...props.card.body}
-                            emailStyle={props.emailStyle}
-                        />
-                    </Card>
-                </EmailPartContent>
-            </EmailPart>
-            <SpaceBeforeFooter />
-            {props.notifications && (
+            {props.title && (
                 <EmailPart>
                     <EmailPartContent>
-                        <ManageNotifications
-                            {...props.notifications}
-                            color={props.emailStyle.primaryTextColor}
-                            itemStyle={{ padding: "0", textAlign: "left" }}
-                        />
+                        <SummaryTitle title={props.title} />
                     </EmailPartContent>
                 </EmailPart>
             )}
+            <EmailPart>
+                <EmailPartContent>
+                    {props.items &&
+                        props.items.map((item, index) => (
+                            <SummaryItem
+                                key={index}
+                                emailStyle={props.emailStyle}
+                                style={{ marginBottom: "15px" }}
+                                {...item}
+                            />
+                        ))}
+                </EmailPartContent>
+            </EmailPart>
+            <SpaceBeforeFooter />
+            <EmailPart>
+                <EmailPartContent>
+                    <ManageNotifications
+                        {...props.notifications}
+                        color={props.emailStyle.primaryTextColor}
+                        itemStyle={{ padding: "0", textAlign: "left" }}
+                    />
+                </EmailPartContent>
+            </EmailPart>
             <EmailPartFooter {...props.footer} />
         </Email>
     );
 };
 
-NotificationEmail.propTypes = {
-    card: PropTypes.shape({
-        body: PropTypes.object.isRequired,
-        header: PropTypes.object.isRequired
-    }).isRequired,
+SummaryEmail.propTypes = {
     emailStyle: PropTypes.shape({
         bgColor: PropTypes.string,
         primaryColor: PropTypes.string,
@@ -67,11 +68,7 @@ NotificationEmail.propTypes = {
         }).isRequired,
         subtitle: PropTypes.node
     }).isRequired,
-    notifications: PropTypes.shape({
-        manageLabel: PropTypes.string,
-        manageLinkLabel: PropTypes.string,
-        manageUrl: PropTypes.string
-    })
+    items: PropTypes.array
 };
 
-export default NotificationEmail;
+export default SummaryEmail;

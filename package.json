@@ -1,6 +1,6 @@
 {
     "name": "isyflow-emails",
-    "version": "0.1.1",
+    "version": "0.2.2",
     "description": "Email templates for Isyflow",
     "license": "MIT",
     "repository": "https://github.com/lateralstudio/isyflow-emails",
@@ -9,7 +9,10 @@
         "webpack": "^2.6.1"
     },
     "dependencies": {
-        "react-html-email": "^3.0.0"
+        "prettier": "^1.15.3",
+        "react-autolinker": "^1.0.7",
+        "react-html-email": "^3.0.0",
+        "react-markdown": "^4.1.0"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,6 +22,20 @@
     "author": {
         "name": "Guillaume Zufferey",
         "email": "guillaume@lateralstudio.ch"
+    },
+    "prettier": {
+        "tabWidth": 4
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,json,css,md}": [
+            "prettier --write",
+            "git add"
+        ]
     },
     "devDependencies": {
         "babel-cli": "^6.24.1",
@@ -31,6 +48,11 @@
         "react": "^16.0.0",
         "react-dom": "^16.4.1",
         "webpack": "^4.16.0",
-        "webpack-cli": "^3.0.8"
+        "webpack-cli": "^3.0.8",
+        "babel-eslint": "^8.2.6",
+        "eslint-config-prettier": "^3.3.0",
+        "eslint-plugin-prettier": "^3.0.1",
+        "eslint-plugin-react": "^7.12.3",
+        "prettier-eslint-cli": "^4.7.1"
     }
 }

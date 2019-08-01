@@ -112,6 +112,16 @@ const Whitespace = props => {
     return <Item style={{ padding: props.padding }}>&nbsp;</Item>;
 };
 
+const getButtonStyle = ({ small, ...props }) => {
+    return {
+        lineHeight: small ? "24px" : "36px",
+        backgroundColor: props.bgColor || "#eee",
+        textDecoration: "none",
+        padding: small ? 4 : 10,
+        color: props.color || "#000"
+    };
+};
+
 const Button = props => {
     return (
         <A
@@ -120,17 +130,7 @@ const Button = props => {
                 textDecoration: "none"
             }}
         >
-            <Span
-                style={{
-                    lineHeight: "36px",
-                    backgroundColor: props.bgColor || "#eee",
-                    textDecoration: "none",
-                    padding: 10,
-                    color: props.color || "#000"
-                }}
-            >
-                {props.label}
-            </Span>
+            <Span style={getButtonStyle(props)}>{props.label}</Span>
         </A>
     );
 };

@@ -21,13 +21,13 @@ const Avatar = props => {
                     display: "block",
                     width: size,
                     height: size,
-                    backgroundColor: "#ddd",
+                    backgroundColor: props.backgroundColor || "#aaa",
                     textAlign: "center"
                 }}
             >
                 <Span
                     style={{
-                        color: "#fff",
+                        color: props.color || "#fff",
                         lineHeight: size
                     }}
                 >
@@ -40,6 +40,8 @@ const Avatar = props => {
 };
 
 Avatar.propTypes = {
+    backgroundColor: PropTypes.string,
+    color: PropTypes.color,
     letter: PropTypes.string,
     size: PropTypes.number,
     url: PropTypes.string

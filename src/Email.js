@@ -57,11 +57,6 @@ const getLinkProps = ({ style }) => {
     };
 };
 
-const greetingsStyle = {
-    fontSize: "16px"
-    //fontWeight: "bold",
-};
-
 const HeaderBox = props => {
     return <Item>{props.children}</Item>;
 };
@@ -117,7 +112,7 @@ const getButtonStyle = ({ small, ...props }) => {
         lineHeight: small ? "24px" : "36px",
         backgroundColor: props.bgColor || "#eee",
         textDecoration: "none",
-        padding: small ? 4 : 10,
+        padding: small ? "6px 12px" : "10px",
         color: props.color || "#000"
     };
 };

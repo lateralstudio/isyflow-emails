@@ -25,16 +25,20 @@ const InvitationEmail = props => {
                                 {...props.card.body}
                                 emailStyle={props.emailStyle}
                             />
-                            {props.card.actions && (
+                        </Box>
+                    </Item>
+                    {props.card.actions && (
+                        <Item>
+                            <Box>
                                 <Actions
                                     actions={props.card.actions}
                                     emailStyle={props.emailStyle}
                                     small={false}
                                     style={{ padding: "20px 0 0 0" }}
                                 />
-                            )}
-                        </Box>
-                    </Item>
+                            </Box>
+                        </Item>
+                    )}
                 </EmailPartContent>
             </EmailPart>
             <SpaceBeforeFooter />

@@ -1,7 +1,7 @@
 import Actions from "./Actions.js";
 import { Box, Item } from "react-html-email";
 import { Email, EmailPart, EmailPartContent } from "./Email.js";
-import { Card, CardBody, CardHeader } from "./Card.js";
+import { CardBody, CardHeader } from "./Card.js";
 import cardStyle from "./cardStyle.js";
 import EmailPartFooter from "./EmailPartFooter.js";
 import EmailPartHeader from "./EmailPartHeader.js";

@@ -24,7 +24,7 @@ const Footer = ({ textColor, ...props }) => {
                 >
                     <Span style={{ color }}>
                         <p>
-                            Copyright &copy; 2018{" "}
+                            Copyright &copy; 2019{" "}
                             {props.copyright || "Lateral Studio Sàrl"}
                         </p>
                         <p>{props.address || "1010 Lausanne, Switzerland"}</p>

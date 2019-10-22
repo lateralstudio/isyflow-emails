@@ -1,13 +1,11 @@
 import { A, Box, Item, Span } from "react-html-email";
 import {
     defaultBoxProps,
-    getDefaultLinkProps,
     getLinkProps,
     EmailPart,
     EmailPartContent,
     Whitespace
 } from "./Email.js";
-import PropTypes from "prop-types";
 import React from "react";
 
 const Footer = ({ textColor, ...props }) => {
@@ -23,10 +21,7 @@ const Footer = ({ textColor, ...props }) => {
                     }}
                 >
                     <Span style={{ color }}>
-                        <p>
-                            Copyright &copy; 2019{" "}
-                            {props.copyright || "Lateral Studio Sàrl"}
-                        </p>
+                        <p>{props.copyright || "Lateral Studio Sàrl"}</p>
                         <p>{props.address || "1010 Lausanne, Switzerland"}</p>
                     </Span>
                     <Span>

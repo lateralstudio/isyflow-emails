@@ -1,12 +1,12 @@
 {
     "name": "isyflow-emails",
-    "version": "0.2.8",
+    "version": "0.2.9",
     "description": "Email templates for Isyflow",
     "license": "MIT",
     "repository": "https://github.com/lateralstudio/isyflow-emails",
     "main": "build/index.js",
     "peerDependencies": {
-        "webpack": "^2.6.1"
+        "webpack": "^4.0.0"
     },
     "dependencies": {
         "react-autolinker": "^1.0.7",

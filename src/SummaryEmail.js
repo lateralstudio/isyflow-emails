@@ -68,7 +68,8 @@ SummaryEmail.propTypes = {
         }).isRequired,
         subtitle: PropTypes.node
     }).isRequired,
-    items: PropTypes.array
+    items: PropTypes.array,
+    title: PropTypes.string
 };
 
 export default SummaryEmail;

@@ -9,14 +9,16 @@ const Actions = ({ actions, emailStyle, small, style }) => {
             <Item style={style}>
                 <Span>
                     {actions.map((action, index) => (
-                        <Button
-                            key={index}
-                            bgColor={emailStyle.primaryColor}
-                            color={emailStyle.alternateTextColor}
-                            label={action.label}
-                            small={small}
-                            url={action.url}
-                        />
+                        <Span key={index}>
+                            <Button
+                                bgColor={emailStyle.primaryColor}
+                                color={emailStyle.alternateTextColor}
+                                label={action.label}
+                                small={small}
+                                url={action.url}
+                            />
+                            &nbsp;
+                        </Span>
                     ))}
                 </Span>
             </Item>
@@ -28,12 +30,12 @@ Actions.propTypes = {
     actions: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.node,
-            url: PropTypes.string
-        })
+            url: PropTypes.string,
+        }),
     ).isRequired,
     emailStyle: PropTypes.object.isRequired,
     small: PropTypes.bool,
-    style: PropTypes.object
+    style: PropTypes.object,
 };
 
 export default Actions;

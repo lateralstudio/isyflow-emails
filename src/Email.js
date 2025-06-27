@@ -108,7 +108,6 @@ const Whitespace = props => {
 };
 
 const getButtonStyle = ({ small, ...props }) => {
-    console.log("getButtonStyle", props.fontFamily);
     return {
         lineHeight: small ? "24px" : "36px",
         backgroundColor: props.bgColor || "#eee",

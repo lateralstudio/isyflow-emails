@@ -1,6 +1,6 @@
 {
     "name": "isyflow-emails",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "Email templates for Isyflow",
     "license": "MIT",
     "repository": "https://github.com/lateralstudio/isyflow-emails",

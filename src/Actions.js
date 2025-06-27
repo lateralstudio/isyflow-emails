@@ -3,7 +3,7 @@ import { Button } from "./Email.js";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Actions = ({ actions, emailStyle, small, style }) => {
+const Actions = ({ actions, emailStyle, fontFamily, small, style }) => {
     return (
         <Box>
             <Item style={style}>
@@ -13,6 +13,7 @@ const Actions = ({ actions, emailStyle, small, style }) => {
                             <Button
                                 bgColor={emailStyle.primaryColor}
                                 color={emailStyle.alternateTextColor}
+                                fontFamily={fontFamily}
                                 label={action.label}
                                 small={small}
                                 url={action.url}
@@ -30,12 +31,13 @@ Actions.propTypes = {
     actions: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.node,
-            url: PropTypes.string,
-        }),
+            url: PropTypes.string
+        })
     ).isRequired,
     emailStyle: PropTypes.object.isRequired,
+    fontFamily: PropTypes.string,
     small: PropTypes.bool,
-    style: PropTypes.object,
+    style: PropTypes.object
 };
 
 export default Actions;

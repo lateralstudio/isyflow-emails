@@ -21,7 +21,7 @@ const Card = props => {
     );
 };
 
-const CardHeader = ({ avatar, title, subtitle }) => {
+const CardHeader = ({ avatar, fontFamily, title, subtitle }) => {
     const height = 48;
     const AvatarComp = avatar && <Avatar {...avatar} size={height} />;
     const avatarStyle = {
@@ -42,7 +42,8 @@ const CardHeader = ({ avatar, title, subtitle }) => {
                     display: "inline-block",
                     verticalAlign: "top",
                     fontSize: "18px",
-                    lineHeight: "42px"
+                    lineHeight: "42px",
+                    fontFamily
                 }}
             >
                 <Markdown text={title} />
@@ -67,6 +68,7 @@ const CardBody = ({
     actionUrl,
     content,
     emailStyle = {},
+    fontFamily,
     title
 }) => {
     const itemStyle = {
@@ -89,7 +91,7 @@ const CardBody = ({
             items.push(
                 <Item key={index}>
                     {line ? (
-                        <Span>
+                        <Span style={{ fontFamily }}>
                             <Markdown text={line} />
                         </Span>
                     ) : (
@@ -108,6 +110,7 @@ const CardBody = ({
                         url={actionUrl}
                         bgColor={emailStyle.primaryColor}
                         color={emailStyle.alternateTextColor}
+                        fontFamily={fontFamily}
                     />
                 </Span>
             </Item>
@@ -124,6 +127,7 @@ CardBody.propTypes = {
         primaryTextColor: PropTypes.string
     }),
     content: PropTypes.node,
+    fontFamily: PropTypes.string,
     title: PropTypes.node
 };
 

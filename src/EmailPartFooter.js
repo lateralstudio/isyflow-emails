@@ -8,7 +8,7 @@ import {
 } from "./Email.js";
 import React from "react";
 
-const Footer = ({ textColor, ...props }) => {
+const Footer = ({ textColor, fontFamily, ...props }) => {
     const color = textColor || "#fff";
     return (
         <Item>
@@ -21,14 +21,20 @@ const Footer = ({ textColor, ...props }) => {
                     }}
                 >
                     <Span style={{ color }}>
-                        <p>{props.copyright || "Lateral Studio Sàrl"}</p>
-                        <p>{props.address || "1010 Lausanne, Switzerland"}</p>
+                        <p style={{ fontFamily }}>
+                            {props.copyright || "Lateral Studio Sàrl"}
+                        </p>
+                        <p style={{ fontFamily }}>
+                            {props.address || "1010 Lausanne, Switzerland"}
+                        </p>
                     </Span>
                     <Span>
                         <p>
                             <A
                                 href={props.url || "https://www.isyflow.ch"}
-                                {...getLinkProps({ style: { color } })}
+                                {...getLinkProps({
+                                    style: { color, fontFamily }
+                                })}
                             >
                                 {props.urlLabel || "www.isyflow.ch"}
                             </A>
@@ -39,7 +45,9 @@ const Footer = ({ textColor, ...props }) => {
                                     href={
                                         props.mailto || "mailto:isy@isyflow.ch"
                                     }
-                                    {...getLinkProps({ style: { color } })}
+                                    {...getLinkProps({
+                                        style: { color, fontFamily }
+                                    })}
                                 >
                                     {props.mailtoLabel || "isy@isyflow.ch"}
                                 </A>

@@ -18,7 +18,10 @@ const SummaryEmail = props => {
             {props.title && (
                 <EmailPart>
                     <EmailPartContent>
-                        <SummaryTitle title={props.title} />
+                        <SummaryTitle
+                            title={props.title}
+                            fontFamily={props.fontFamily}
+                        />
                     </EmailPartContent>
                 </EmailPart>
             )}
@@ -31,6 +34,7 @@ const SummaryEmail = props => {
                                 emailStyle={props.emailStyle}
                                 style={{ marginBottom: "15px" }}
                                 {...item}
+                                fontFamily={props.fontFamily}
                             />
                         ))}
                 </EmailPartContent>
@@ -42,10 +46,11 @@ const SummaryEmail = props => {
                         {...props.notifications}
                         color={props.emailStyle.primaryTextColor}
                         itemStyle={{ padding: "0", textAlign: "left" }}
+                        fontFamily={props.fontFamily}
                     />
                 </EmailPartContent>
             </EmailPart>
-            <EmailPartFooter {...props.footer} />
+            <EmailPartFooter {...props.footer} fontFamily={props.fontFamily} />
         </Email>
     );
 };
@@ -60,6 +65,7 @@ SummaryEmail.propTypes = {
         bgColor: PropTypes.string,
         textColor: PropTypes.string
     }),
+    fontFamily: PropTypes.string,
     header: PropTypes.shape({
         logo: PropTypes.shape({
             height: PropTypes.number,

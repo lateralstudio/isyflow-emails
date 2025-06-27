@@ -9,16 +9,21 @@ import Markdown from "./Markdown.js";
 import PropTypes from "prop-types";
 import React from "react";
 
-const SummaryItem = ({ actions, avatar, card, emailStyle, style, title }) => {
+const SummaryItem = ({
+    actions,
+    avatar,
+    card,
+    emailStyle,
+    fontFamily,
+    style,
+    title
+}) => {
     return (
         <Item>
             <Box {...defaultBoxProps} style={style}>
                 <Item>
-                    <div style={{ width: "48px", float: "left" }}>
-                        <Avatar height={48} {...avatar} />
-                    </div>
-                    <div style={{ marginLeft: "52px" }}>
-                        <Span>
+                    <div>
+                        <Span style={{ fontFamily }}>
                             <Markdown text={title} />
                         </Span>
                         {card && (
@@ -26,6 +31,7 @@ const SummaryItem = ({ actions, avatar, card, emailStyle, style, title }) => {
                                 <CardBody
                                     {...card.body}
                                     emailStyle={emailStyle}
+                                    fontFamily={fontFamily}
                                 />
                             </Box>
                         )}
@@ -33,6 +39,7 @@ const SummaryItem = ({ actions, avatar, card, emailStyle, style, title }) => {
                             <Actions
                                 actions={actions}
                                 emailStyle={emailStyle}
+                                fontFamily={fontFamily}
                                 small={true}
                                 style={{ padding: "5px 0 0 0" }}
                             />
@@ -49,6 +56,7 @@ SummaryItem.propTypes = {
     avatar: PropTypes.shape.isRequired,
     card: PropTypes.shape,
     emailStyle: PropTypes.object.isRequired,
+    fontFamily: PropTypes.string,
     title: PropTypes.node.isRequired
 };
 

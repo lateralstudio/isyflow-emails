@@ -15,15 +15,22 @@ const InvitationEmail = props => {
             <EmailPartHeader
                 {...props.header}
                 color={props.emailStyle.primaryTextColor}
+                fontFamily={props.fontFamily}
             />
             <EmailPart>
                 <EmailPartContent>
-                    {props.card.header && <CardHeader {...props.card.header} />}
+                    {props.card.header && (
+                        <CardHeader
+                            {...props.card.header}
+                            fontFamily={props.fontFamily}
+                        />
+                    )}
                     <Item>
                         <Box style={cardStyle}>
                             <CardBody
                                 {...props.card.body}
                                 emailStyle={props.emailStyle}
+                                fontFamily={props.fontFamily}
                             />
                         </Box>
                     </Item>
@@ -33,6 +40,7 @@ const InvitationEmail = props => {
                                 <Actions
                                     actions={props.card.actions}
                                     emailStyle={props.emailStyle}
+                                    fontFamily={props.fontFamily}
                                     small={false}
                                     style={{ padding: "20px 0 0 0" }}
                                 />
@@ -42,12 +50,13 @@ const InvitationEmail = props => {
                 </EmailPartContent>
             </EmailPart>
             <SpaceBeforeFooter />
-            <EmailPartFooter {...props.footer} />
+            <EmailPartFooter {...props.footer} fontFamily={props.fontFamily} />
         </Email>
     );
 };
 
 InvitationEmail.propTypes = {
+    fontFamily: PropTypes.string,
     card: PropTypes.shape({
         body: PropTypes.object.isRequired,
         header: PropTypes.object.isRequired,

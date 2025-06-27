@@ -1,5 +1,6 @@
 var path = require("path");
 module.exports = {
+    target: "node",
     mode: "production",
     entry: "./src/index.js",
     output: {
@@ -16,7 +17,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["env"]
+                        presets: ["@babel/preset-env"]
                     }
                 }
             }

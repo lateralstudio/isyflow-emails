@@ -1,5 +1,5 @@
 const cardStyle = {
-    border: "1px solid #ddd",
+    border: "0px solid #ddd",
     padding: "10px",
     backgroundColor: "#fff",
     width: "100%"
